@@ -32,7 +32,7 @@ class _LocationScreenState extends State<LocationScreen> {
       if (weather_data == null) {
         temprature = 0;
         icon_data = 'Error';
-        sugustion = 'Unable to get weather data';
+        sugustion = 'Unable to get weather data.';
         city_name = '';
         return;
       }
