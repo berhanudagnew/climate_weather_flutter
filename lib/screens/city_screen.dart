@@ -25,9 +25,6 @@ class _CityScreenState extends State<CityScreen> {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
@@ -36,13 +33,18 @@ class _CityScreenState extends State<CityScreen> {
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
-                child: null,
+                child: TextField(
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  decoration: K_text_field_input_decoration,
+                  onChanged: (value) {
+                    print(value);
+                  },
+                ),
               ),
               TextButton(
                 onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.green),
-                ),
                 child: Text(
                   'Get Weather',
                   style: kButtonTextStyle,
