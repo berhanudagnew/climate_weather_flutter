@@ -24,13 +24,11 @@ class _LocationScreenState extends State<LocationScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(widget.location_weather);
     update_UI(widget.location_weather);
   }
 
   void update_UI(dynamic weather_data) {
     setState(() {
-      print(weather_data);
       if (weather_data == null) {
         temprature = 0;
         icon_data = 'Error';
@@ -81,11 +79,16 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.push(
+                    onPressed: () async {
+                      var typed_name = await Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => CityScreen()),
                       );
+                      if (typed_name != null) {
+                        var weather_data =
+                            await weather.get_city_weather(typed_name);
+                        update_UI(weather_data);
+                      }
                     },
                     child: Icon(
                       Icons.location_city,
