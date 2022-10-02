@@ -10,7 +10,7 @@ class Location {
       latitude = position.latitude;
       longtiude = position.longitude;
     } catch (e) {
-      print(e);
+      print('can\'t work location');
     }
   }
 }
